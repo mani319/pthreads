@@ -1,5 +1,6 @@
 #include <pthread.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <iostream>
 
 #define NUM_THREADS 5
@@ -28,6 +29,7 @@ int main()
 
 	for(long i = 0; i < NUM_THREADS; i++)
 	{
+		usleep(100);
 		cout << "Creating Thread " << i << endl;
 		ret = pthread_create(&thread[i], NULL, HelloWorld, (void *)i);
 		errorDisplay(ret, "Creating Thread");

@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
 
 	for(long i = 0; i < NUM_THREADS; i++)
 	{
-		usleep(10000);
+		usleep(100);
 		cout << "Creating Thread " << i  << "............" << endl; 
 		ret = pthread_create(&thread[i], &attr, joining, (void *)i);
 		errorDisplay(ret, "Creating thread");
@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
 	void *status;
 	for (long i = 0; i < NUM_THREADS; i++)
 	{
-		usleep(10000);
+		usleep(100);
 		pthread_join(thread[i], &status);
 		errorDisplay(ret, "Joining thread");
 		cout << "joining thread " << i << " with status = " << (long)status << endl;
